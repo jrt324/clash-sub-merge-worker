@@ -147,12 +147,3 @@ console.log(base64Groups);
 ## 许可证
 
 该项目使用 MIT 许可证。
-```
-
-### 注意事项
-
-- 将 `your-username` 替换为你的实际 GitHub 用户名。
-- 将 `your_worker_url` 替换为你部署的 Cloudflare Worker 的实际 URL。
-- 确保在发送请求之前正确地将代理和组的 JSON 数组编码为 Base64 字符串。
-
-这个 `README.md` 应该为用户提供一个全面的指南，帮助他们理解、安装、配置和使用你的 Cloudflare Worker 项目。
