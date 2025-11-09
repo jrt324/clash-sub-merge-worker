@@ -21,7 +21,7 @@ interface GroupItem {
 }
 
 // Import necessary libraries
-import YAML  from 'yaml';
+import YAML from 'yaml';
 import { Base64 } from 'js-base64';
 
 async function convertUrl(subscribeUrl: string, serverNodes: ServerNode[]) {
@@ -105,8 +105,14 @@ async function handleRequest(request: Request) {
 		};
 	});
 
-	const yaml = await convertUrl(subUrl, serverNodes);
-	return new Response(yaml, {
-		headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-	});
+	try {
+		const yaml = await convertUrl(subUrl, serverNodes);
+		return new Response(yaml, {
+			headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+		});
+
+	} catch ( error) {
+		return new Response(JSON.stringify(error), { status: 400 });
+	}
+
 }
